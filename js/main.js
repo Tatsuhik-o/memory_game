@@ -26,6 +26,18 @@ function generateMyArray(){
 }
 let randomGame = generateMyArray()
 
+//Calculate the time it takes to complete the challenges
+
+let timer = 0
+
+const timerDiv = document.querySelector('.timer')
+timerDiv.innerText = 'Timer: ' + timer + 's'
+
+const interval = setInterval(() => {
+    timer++
+    timerDiv.innerText = 'Timer: ' + timer + 's'
+}, 1000)
+
 // Constructing the main layout
 
 let mySet = new Set()
@@ -51,6 +63,8 @@ randomGame.forEach(elem => {
 
     squareDiv.addEventListener('click', mainOne)
 })
+
+let remaining = 0
 
 // Checking if cards matches or not, then remove the matched ones
 
@@ -91,6 +105,10 @@ function mainOne(event){
                     secondChoice = 0
                     firstClass = ''
                     activeOperation = true
+                    if(document.querySelectorAll('.correct').length === 36){
+                        clearInterval(interval)
+                        timerDiv.innerText = `Congratulation, You passed on: ${timer}s`
+                    }
                 }, 1000)
             }
         }

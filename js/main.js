@@ -26,18 +26,6 @@ function generateMyArray(){
 }
 let randomGame = generateMyArray()
 
-//Calculate the time it takes to complete the challenges
-
-let timer = 0
-
-const timerDiv = document.querySelector('.timer')
-timerDiv.innerText = 'Timer: ' + timer + 's'
-
-const interval = setInterval(() => {
-    timer++
-    timerDiv.innerText = 'Timer: ' + timer + 's'
-}, 1000)
-
 // Constructing the main layout
 
 let mySet = new Set()
@@ -91,7 +79,7 @@ function mainOne(event){
                     secondChoice = 0
                     firstClass = ''
                     activeOperation = true
-                }, 1000)
+                }, 750)
             }
             else{
                 setTimeout(() => {
@@ -109,7 +97,7 @@ function mainOne(event){
                         clearInterval(interval)
                         timerDiv.innerText = `Congratulation, You passed on: ${timer}s`
                     }
-                }, 1000)
+                }, 750)
             }
         }
     }
